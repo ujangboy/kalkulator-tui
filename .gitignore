@@ -1,0 +1,11 @@
+.kilo/
+__pycache__/
+.pytest_cache/
+*.pyc
+.pytest-tmp/
+*.egg-info/
+build/
+dist/
+.venv/
+_dsh-acl-reports/
+pytest-cache-files-*/

@@ -1,0 +1,1020 @@
+/* HITUNG v3.0 — PRD tokens + consistent components (Textual TCSS) */
+
+Screen {
+    background: $background;
+    color: $foreground;
+    layout: vertical;
+}
+
+#too-small {
+    display: none;
+    width: 100%;
+    height: 100%;
+    content-align: center middle;
+    text-align: center;
+    color: $text-muted;
+    background: $background;
+    padding: 2;
+}
+
+Footer {
+    height: 1;
+    background: $background;
+    color: $text-muted;
+}
+
+FooterKey .footer-key--key {
+    color: $foreground;
+    background: $background;
+    text-style: bold;
+}
+
+FooterKey .footer-key--description {
+    color: $text-muted;
+    background: $background;
+}
+
+/* ---------- scrollbars (visible track + thumb) ---------- */
+* {
+    scrollbar-background: $panel;
+    scrollbar-background-hover: $panel;
+    scrollbar-background-active: $panel;
+    scrollbar-color: $border;
+    scrollbar-color-hover: $primary;
+    scrollbar-color-active: $secondary;
+    scrollbar-corner-color: $panel;
+    scrollbar-size: 1 1;
+}
+
+/* ---------- buttons: 5-state system ---------- */
+Button {
+    min-width: 0;
+    height: 3;
+    border: round $border;
+    background: $surface;
+    color: $foreground;
+    content-align: center middle;
+}
+
+Button:hover {
+    background: $hover;
+    border: round $primary;
+    color: $foreground;
+}
+
+Button:focus {
+    border: double $primary;
+    background: $hover;
+    color: $foreground;
+    text-style: bold;
+}
+
+Button.-active {
+    border: round $primary;
+    background: $hover;
+}
+
+Button.-style-default {
+    border: round $border;
+    background: $surface;
+}
+
+Button.-style-default:hover {
+    background: $hover;
+    border: round $primary;
+}
+
+Button.-primary,
+Button.-style-primary {
+    background: $primary;
+    color: $background;
+    border: round $primary;
+    text-style: bold;
+}
+
+Button.-primary:hover,
+Button.-style-primary:hover {
+    background: $secondary;
+    border: round $secondary;
+    color: $background;
+}
+
+Button.-primary:focus,
+Button.-style-primary:focus {
+    border: double $foreground;
+    background: $secondary;
+    color: $background;
+}
+
+Button.-error,
+Button.danger {
+    border: round $error;
+    color: $error;
+    background: $surface;
+}
+
+Button.-error:hover,
+Button.danger:hover {
+    background: $error 20%;
+    border: round $error;
+    color: $foreground;
+}
+
+Button:disabled {
+    opacity: 55%;
+    color: $text-muted;
+    border: round $border;
+    background: $surface;
+}
+
+/* ---------- shell / sidebar ---------- */
+#shell {
+    height: 100%;
+    layout: horizontal;
+}
+
+#sidebar {
+    width: 24;
+    min-width: 22;
+    height: 100%;
+    background: $panel;
+    border-right: solid $border;
+    padding: 0 0 1 0;
+    overflow-y: auto;
+}
+
+.side-brand {
+    height: 1;
+    padding: 1 2 0 2;
+    color: $foreground;
+    text-style: bold;
+}
+
+.side-brand-sub {
+    height: 1;
+    padding: 0 2 1 2;
+    color: $text-muted;
+    border-bottom: solid $border;
+    margin-bottom: 1;
+}
+
+.side-section {
+    height: 1;
+    padding: 0 2;
+    margin-top: 1;
+    color: $text-muted;
+    text-style: bold;
+}
+
+#sidebar .side-btn {
+    width: 100%;
+    min-width: 0;
+    height: 1;
+    min-height: 1;
+    border: none;
+    border-left: heavy $panel;
+    padding: 0 1 0 1;
+    margin: 0;
+    background: transparent;
+    color: $text-muted;
+    content-align: left middle;
+    text-align: left;
+    text-style: none;
+}
+
+#sidebar .side-btn:hover {
+    background: $hover;
+    color: $foreground;
+    border-left: heavy $hover;
+}
+
+#sidebar .side-btn:focus {
+    background: $hover;
+    color: $foreground;
+    border: none;
+    border-left: heavy $primary;
+    text-style: bold;
+}
+
+#sidebar .side-btn.-active {
+    background: $surface;
+    color: $primary;
+    border-left: heavy $primary;
+    text-style: bold;
+}
+
+#sidebar .side-btn.-active:hover {
+    background: $hover;
+    color: $primary;
+    border-left: heavy $primary;
+}
+
+#tools {
+    width: 1fr;
+    height: 100%;
+}
+
+/* ---------- calculator display (hierarchy jelas, hasil menonjol) ---------- */
+CalculatorDisplay {
+    height: auto;
+    min-height: 7;
+    padding: 1 2;
+    margin: 1 2 0 2;
+    background: $surface;
+    border: round $border;
+}
+
+.calc-angle {
+    color: $text-muted;
+    height: 1;
+    text-align: right;
+}
+
+.calc-expression {
+    color: $text-muted;
+    height: auto;
+    min-height: 1;
+    text-align: right;
+    padding-top: 0;
+}
+
+.calc-result {
+    color: $success;
+    text-style: bold;
+    height: auto;
+    min-height: 2;
+    text-align: right;
+    padding: 1 0 0 0;
+}
+
+.calc-result.-preview {
+    color: $secondary;
+}
+
+.calc-status {
+    color: $text-muted;
+    height: 1;
+    text-align: right;
+}
+
+.calc-status.-error {
+    color: $error;
+}
+
+/* ---------- keypads (penuhi lebar, rounded-rectangle, spacing rapat) ---------- */
+StandardTool, ScientificTool {
+    height: 1fr;
+    layout: vertical;
+    padding: 0 1 1 1;
+}
+
+CalculatorDisplay {
+    width: 100%;
+}
+
+ScientificKeypad, NumericKeypad {
+    height: auto;
+    width: 100%;
+    layout: grid;
+    grid-size: 4;
+    grid-rows: 3 3 3 3 3 3 3;
+    grid-gutter: 1 1;
+    padding: 1 1 0 1;
+}
+
+ScientificKeypad.cols-7 {
+    grid-size: 7;
+    grid-rows: 3 3 3 3 3 3;
+    grid-gutter: 1 1;
+}
+
+NumericKeypad {
+    grid-rows: 3 3 3 3 3;
+}
+
+/* ---------- compact vertical layout (100x30, minimum 60x18) ---------- */
+#shell.-compact CalculatorDisplay {
+    min-height: 5;
+    padding: 0 2;
+    margin: 0 2;
+}
+
+#shell.-compact .calc-result {
+    min-height: 1;
+    padding-top: 0;
+}
+
+#shell.-compact ScientificKeypad,
+#shell.-compact NumericKeypad {
+    grid-gutter: 0 1;
+    padding: 0 1;
+}
+
+#shell.-tiny CalculatorDisplay {
+    padding: 0 1;
+    margin: 0 1;
+}
+
+#shell.-tiny #tools .key,
+#shell.-tiny NumericKeypad .key {
+    height: 1;
+    min-height: 1;
+    border: none;
+}
+
+#shell.-tiny ScientificKeypad {
+    grid-rows: 1 1 1 1 1 1 1;
+}
+
+#shell.-tiny ScientificKeypad.cols-7 {
+    grid-rows: 1 1 1 1 1 1;
+}
+
+#shell.-tiny NumericKeypad {
+    grid-rows: 1 1 1 1 1;
+}
+
+#shell.-tiny ScientificKeypad,
+#shell.-tiny NumericKeypad {
+    grid-gutter: 0 0;
+    padding: 0 1;
+}
+
+/* Converter needs tighter chrome than the calculator screens. */
+#shell.-compact ConverterTool {
+    padding: 0 1;
+}
+
+#shell.-compact ConverterTabs {
+    margin-bottom: 0;
+}
+
+#shell.-compact ConverterTabs .tab {
+    height: 2;
+    min-height: 2;
+    border: none;
+}
+
+#shell.-compact #conv-panels {
+    margin-bottom: 0;
+}
+
+#shell.-compact #conv-result {
+    margin-bottom: 0;
+}
+
+#shell.-tiny ConverterTabs .tab {
+    height: 1;
+    min-height: 1;
+}
+
+#shell.-tiny .unit-pick {
+    height: 1;
+    min-height: 1;
+    border: none;
+}
+
+#shell.-tiny #conv-result {
+    height: 1;
+    min-height: 1;
+    border: none;
+    margin-bottom: 0;
+}
+
+/* Base key: fills grid cell, rounded, centered */
+#tools .key,
+NumericKeypad .key {
+    width: 100%;
+    min-width: 3;
+    height: 3;
+    min-height: 3;
+    padding: 0;
+    border: round $border;
+    background: $surface;
+    color: $foreground;
+    content-align: center middle;
+    text-align: center;
+    text-style: bold;
+}
+
+/* Color hierarchy: operator biru, clear merah */
+#tools .key.key-numeric,
+NumericKeypad .key.key-numeric { background: #151E2C; border: round #34465E; color: #E5ECF5; }
+#tools .key.key-operator,
+NumericKeypad .key.key-operator { background: #163566; border: round #4389F5; color: #FFFFFF; }
+#tools .key.key-utility,
+NumericKeypad .key.key-utility { background: #182334; border: round #3E5878; color: #E5ECF5; }
+#tools .key.key-scientific { background: #162131; border: round #3A4F6B; color: #DCE7F5; }
+#tools .key.key-clear,
+NumericKeypad .key.key-clear { background: #5A1F28; border: round #ED7777; color: #FFFFFF; }
+#tools .key.key-backspace,
+NumericKeypad .key.key-backspace { background: #263446; border: round #60748E; color: #E5ECF5; }
+#tools .key.key-equals,
+NumericKeypad .key.key-equals { background: $primary; border: round $primary; color: $background; text-style: bold; }
+
+/* 5 states */
+#tools .key:hover,
+NumericKeypad .key:hover {
+    background: $hover;
+    border: round $secondary;
+    color: $foreground;
+}
+#tools .key.key-operator:hover,
+NumericKeypad .key.key-operator:hover { background: #1E4A8A; border: round #65A2FF; color: #FFFFFF; }
+#tools .key.key-equals:hover,
+NumericKeypad .key.key-equals:hover {
+    background: $secondary;
+    border: round $secondary;
+    color: $background;
+}
+#tools .key.key-clear:hover,
+NumericKeypad .key.key-clear:hover { background: #7A2733; border: round #FF9A9A; color: #FFFFFF; }
+#tools .key.key-backspace:hover,
+NumericKeypad .key.key-backspace:hover { background: #31465F; border: round #8AA2C2; }
+
+#tools .key:focus,
+NumericKeypad .key:focus {
+    border: heavy $primary;
+    background: $hover;
+    color: $foreground;
+    text-style: bold;
+}
+#tools .key.key-operator:focus,
+NumericKeypad .key.key-operator:focus { border: heavy #65A2FF; background: #1E4A8A; color: #FFFFFF; }
+#tools .key.key-clear:focus,
+NumericKeypad .key.key-clear:focus { border: heavy #FF9A9A; background: #7A2733; color: #FFFFFF; }
+#tools .key.key-equals:focus,
+NumericKeypad .key.key-equals:focus {
+    border: heavy $foreground;
+    background: $secondary;
+    color: $background;
+}
+
+#tools .key.-active,
+NumericKeypad .key.-active {
+    background: $panel;
+    border: heavy $secondary;
+}
+
+#tools .key:disabled,
+NumericKeypad .key:disabled {
+    opacity: 45%;
+    color: $text-muted;
+    border: round $border;
+    background: $surface;
+}
+
+/* ---------- converter ---------- */
+ConverterTool {
+    height: 1fr;
+    layout: vertical;
+    padding: 1 1 0 1;
+    overflow-y: auto;
+}
+
+ConverterTabs {
+    height: auto;
+    layout: grid;
+    grid-size: 4;
+    grid-gutter: 0 1;
+    margin-bottom: 1;
+}
+
+ConverterTabs .tab {
+    width: 100%;
+    min-width: 0;
+    height: 3;
+    margin: 0;
+    border: round $border;
+    background: $surface;
+    color: $text-muted;
+}
+
+ConverterTabs .tab:hover {
+    background: $hover;
+    border: round $primary;
+    color: $foreground;
+}
+
+ConverterTabs .tab:focus {
+    border: double $primary;
+    color: $foreground;
+}
+
+ConverterTabs .tab.-active {
+    border: round $primary;
+    background: $hover;
+    color: $primary;
+    text-style: bold;
+}
+
+#conv-panels {
+    height: auto;
+    min-height: 7;
+    layout: horizontal;
+    margin-bottom: 1;
+}
+
+UnitSelector {
+    width: 1fr;
+    min-width: 18;
+    height: auto;
+    min-height: 7;
+    padding: 0 1;
+    border: round $border;
+    background: $surface;
+}
+
+UnitSelector:hover {
+    border: round $primary 70%;
+}
+
+UnitSelector:focus,
+UnitSelector:focus-within {
+    border: double $primary;
+    background: $surface;
+}
+
+.unit-title {
+    height: 1;
+    color: $text-muted;
+    text-style: bold;
+}
+
+.unit-pick {
+    width: 100%;
+    height: 3;
+    margin: 0;
+    content-align: left middle;
+    text-align: left;
+}
+
+.unit-list {
+    width: 100%;
+    height: auto;
+    max-height: 10;
+    margin: 0 0 1 0;
+    border: round $primary;
+    background: $surface;
+    display: none;
+    scrollbar-background: $panel;
+    scrollbar-color: $border;
+    scrollbar-color-hover: $primary;
+}
+
+.unit-list:focus {
+    border: double $primary;
+}
+
+.unit-value {
+    height: auto;
+    min-height: 1;
+    margin-top: 0;
+    color: $success;
+    text-style: bold;
+    text-align: right;
+}
+
+#conv-swap {
+    width: 7;
+    min-width: 7;
+    height: 3;
+    margin: 2 1 0 1;
+}
+
+#conv-result {
+    height: auto;
+    min-height: 2;
+    padding: 0 1;
+    margin-bottom: 1;
+    color: $foreground;
+    background: $panel;
+    border: round $border;
+    content-align: left middle;
+}
+
+
+/* Equals/hasil menonjol: standard full-width baris, lainnya span proporsional */
+#key-pow {
+    column-span: 2;
+}
+#key-equals {
+    column-span: 4;
+    width: 100%;
+    min-width: 100%;
+}
+#conv-key-equals {
+    column-span: 4;
+    width: 100%;
+    min-width: 100%;
+}
+#sci-key-equals {
+    column-span: 3;
+    width: 100%;
+    min-width: 100%;
+}
+
+/* ---------- percentage & tip ---------- */
+PercentageTool, TipTool {
+    height: 1fr;
+    layout: vertical;
+    padding: 1 2;
+    overflow-y: auto;
+}
+
+#pct-title, #tip-title {
+    color: $primary;
+    text-style: bold;
+    height: 1;
+    margin-bottom: 1;
+}
+
+#pct-modes, #tip-quick, #tip-people-row {
+    height: auto;
+    layout: horizontal;
+    margin: 1 0;
+}
+
+.pct-mode, .tip-quick {
+    width: 1fr;
+    min-width: 0;
+    height: 3;
+    margin-right: 1;
+    border: round $border;
+    background: $surface;
+    color: $text-muted;
+}
+
+.pct-mode:hover, .tip-quick:hover {
+    background: $hover;
+    border: round $primary;
+    color: $foreground;
+}
+
+.pct-mode:focus, .tip-quick:focus {
+    border: double $primary;
+    color: $foreground;
+}
+
+.pct-mode.-active, .tip-quick.-active {
+    border: round $primary;
+    background: $hover;
+    color: $primary;
+    text-style: bold;
+}
+
+#pct-price, #pct-percent, #tip-bill, #tip-percent, #tip-people {
+    width: 100%;
+    margin-bottom: 1;
+}
+
+Input {
+    border: round $border;
+    background: $panel;
+}
+
+Input:focus {
+    border: round $primary;
+}
+
+#pct-out {
+    height: auto;
+    min-height: 3;
+    margin-top: 1;
+    padding: 1 2;
+    border: round $border;
+    background: $surface;
+    color: $success;
+}
+
+#pct-out.-error {
+    color: $error;
+}
+
+#tip-people-minus, #tip-people-plus {
+    width: 7;
+    min-width: 7;
+    height: 3;
+}
+
+#tip-people {
+    width: 1fr;
+    margin: 0 1 1 1;
+}
+
+#tip-results {
+    layout: grid;
+    grid-size: 2;
+    grid-gutter: 1 1;
+    height: auto;
+    margin-top: 1;
+}
+
+.tip-result {
+    height: auto;
+    min-height: 3;
+    padding: 1 2;
+    border: round $border;
+    background: $surface;
+}
+
+.tip-label {
+    height: 1;
+    color: $text-muted;
+}
+
+.tip-value {
+    height: 1;
+    color: $success;
+    text-style: bold;
+}
+
+/* ---------- dashboard ---------- */
+DashboardTool {
+    height: 1fr;
+    layout: vertical;
+    padding: 1 2;
+}
+
+#dash-title {
+    height: 1;
+    color: $primary;
+    text-style: bold;
+}
+
+#dash-sub {
+    height: 1;
+    margin-bottom: 1;
+    color: $text-muted;
+}
+
+#dash-search {
+    margin-bottom: 1;
+}
+
+#quick-row {
+    height: auto;
+    layout: horizontal;
+    margin-bottom: 1;
+}
+
+.quick-card {
+    width: 1fr;
+    min-width: 0;
+    height: auto;
+    min-height: 3;
+    margin-right: 1;
+    padding: 0 1;
+    border: round $border;
+    background: $surface;
+    color: $foreground;
+    text-align: left;
+    content-align: left middle;
+}
+
+.quick-card:hover {
+    background: $hover;
+    border: round $primary;
+    color: $foreground;
+}
+
+.quick-card:focus {
+    border: double $primary;
+}
+
+.section, .section-label {
+    height: 1;
+    margin-top: 1;
+    color: $text-muted;
+    text-style: bold;
+}
+
+#dash-columns {
+    height: 1fr;
+    layout: horizontal;
+}
+
+#dash-main {
+    width: 1fr;
+    height: 1fr;
+}
+
+#dash-side {
+    width: 38;
+    min-width: 24;
+    height: 1fr;
+    margin-left: 1;
+}
+
+.tool-list {
+    height: auto;
+}
+
+.dash-item {
+    width: 100%;
+    height: auto;
+    min-height: 3;
+    margin: 0 0 1 0;
+    content-align: left middle;
+    text-align: left;
+}
+
+#recent-head {
+    height: auto;
+    layout: horizontal;
+}
+
+#recent-head .section {
+    width: 1fr;
+}
+
+.mini {
+    width: auto;
+    min-width: 7;
+    height: 1;
+    border: none;
+    padding: 0 1;
+    background: transparent;
+    color: $text-muted;
+}
+
+.mini:hover {
+    color: $error;
+    background: transparent;
+    border: none;
+}
+
+.mini:focus {
+    border: none;
+    color: $error;
+    text-style: bold;
+}
+
+#recent-box, #fav-box {
+    height: auto;
+    min-height: 3;
+    border: round $border;
+    padding: 1;
+    background: $panel;
+    color: $foreground;
+}
+
+/* ---------- modals ---------- */
+HistoryScreen, SettingsScreen, HelpScreen, ConfirmScreen, SearchScreen {
+    align: center middle;
+    background: $background 80%;
+}
+
+#history-box, #settings-box, #help-box, #confirm-box, #search-box {
+    border: round $border;
+    background: $surface;
+    padding: 1 2;
+    height: auto;
+    max-height: 92%;
+}
+
+#history-box { width: 90%; max-width: 84; }
+#settings-box { width: 80; max-width: 96%; }
+#help-box { width: 72; max-width: 94%; }
+#confirm-box { width: 60; max-width: 92%; border: round $warning; }
+#search-box { width: 76; max-width: 96%; }
+
+#history-title, #settings-title, #help-title, #search-title {
+    color: $primary;
+    text-style: bold;
+}
+
+#confirm-title {
+    color: $warning;
+    text-style: bold;
+}
+
+#confirm-message, #help-text, #history-hint, #settings-hint, #help-hint {
+    margin-top: 1;
+    color: $foreground;
+}
+
+#history-hint, #settings-hint, #help-hint {
+    color: $text-muted;
+}
+
+#history-scroll, #search-list-wrap {
+    height: auto;
+    max-height: 14;
+    margin-top: 1;
+    border: round $border;
+    background: $panel;
+}
+
+#history-buttons, #settings-buttons, #confirm-buttons, #search-buttons {
+    height: auto;
+    layout: horizontal;
+    align: right middle;
+    margin-top: 1;
+}
+
+#history-buttons Button, #settings-buttons Button, #confirm-buttons Button, #search-buttons Button {
+    margin-left: 1;
+    width: auto;
+    min-width: 12;
+}
+
+#settings-fields {
+    layout: grid;
+    grid-size: 2;
+    grid-columns: 1fr 1fr;
+    grid-gutter: 1 2;
+    height: auto;
+    margin-top: 1;
+}
+
+.field, .toggle-field {
+    height: auto;
+}
+
+.field-label {
+    color: $text-muted;
+    margin-bottom: 0;
+}
+
+.field-input, .field-select {
+    width: 100%;
+}
+
+#toggles {
+    height: auto;
+    layout: horizontal;
+    margin-top: 1;
+}
+
+#toggles .toggle-field {
+    width: 1fr;
+    margin-right: 2;
+}
+
+Switch {
+    height: auto;
+}
+
+Switch:focus {
+    border: tall $primary;
+}
+
+Select {
+    width: 100%;
+}
+
+Select:focus > SelectCurrent {
+    border: round $primary;
+}
+
+SelectCurrent {
+    border: round $border;
+    background: $panel;
+    color: $foreground;
+}
+
+SelectCurrent:hover {
+    border: round $primary;
+}
+
+SelectOverlay, SelectOverlay:focus {
+    border: round $primary;
+    background: $surface;
+    color: $foreground;
+    max-height: 12;
+    scrollbar-background: $panel;
+    scrollbar-color: $border;
+    scrollbar-color-hover: $primary;
+}
+
+OptionList {
+    background: $surface;
+    color: $foreground;
+}
+
+OptionList:focus {
+    border: round $primary;
+}
+
+OptionList > .option-list--option-highlighted {
+    background: $hover;
+    color: $foreground;
+    text-style: bold;
+}
+
+OptionList > .option-list--option-hover {
+    background: $hover;
+}
+
+.search-item {
+    width: 100%;
+    margin-bottom: 0;
+    content-align: left middle;
+    text-align: left;
+}
+
+/* Make destructive confirm button clear when using default/error variant */
+#confirm-box Button.-error {
+    background: $error 20%;
+}
